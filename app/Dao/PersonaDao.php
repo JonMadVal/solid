@@ -21,12 +21,12 @@ class PersonaDao implements PersonaInterfaceDao
 
     public function getById($id)
     {
-        $this->persona->find($id);
+        return $this->persona->find($id);
     }
 
     public function getAll()
     {
-        $this->persona->all();
+        return $this->persona->all();
     }
 
     public function create(array $data)
@@ -34,13 +34,16 @@ class PersonaDao implements PersonaInterfaceDao
         return $this->persona->create($data);
     }
 
-    public function update(array $data)
+    public function update(array $data,$id)
     {
-        $this->persona->update($data);
+        $persona = $this->persona->find($id);
+        $persona->update($data);
+        return $persona->save();
     }
 
     public function delete($id)
     {
-        $this->persona->delete($id);
+        $persona = $this->persona->find($id);
+        return $persona->delete($id);
     }
 }
