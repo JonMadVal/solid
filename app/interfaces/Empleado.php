@@ -9,11 +9,6 @@ namespace App\Interfaces;
 
 interface Empleado
 {
-    public function getById($id);
-    public function getAll();
-    public function create(array $data);
-    public function update(array $data);
-    public function delete($id);
     public function getSalary();
     public function setSalary($salary);
     public function getStatus();
