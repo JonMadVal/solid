@@ -17,5 +17,9 @@ Route::get('/', function () {
 
 */
 Route::get('/', 'PersonaController@create');
+Route::get('/beneficiocreate', 'BeneficioController@create');
+Route::get('/beneficiosgetall', 'BeneficioController@getAll');
+Route::get('/beneficio/{id}', 'BeneficioController@getById');
+
 Route::get('/welcome', 'PersonaController@getView');
 
