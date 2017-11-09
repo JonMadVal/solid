@@ -7,7 +7,7 @@
  */
 namespace App\Interfaces;
 
-interface EmpleadoInterface
+interface Empleado
 {
     public function getById($id);
     public function getAll();
