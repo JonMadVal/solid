@@ -31,7 +31,7 @@ class PersonaDao implements PersonaInterfaceDao
 
     public function create(array $data)
     {
-        $this->persona->create($data);
+        return $this->persona->create($data);
     }
 
     public function update(array $data)
