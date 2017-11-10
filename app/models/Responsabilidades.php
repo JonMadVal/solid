@@ -10,6 +10,7 @@ class Responsabilidades extends Model
     public $timestamps = false;
     protected $primaryKey = 'idresponsabilidad';
     protected $fillable = [
+        'idresponsabilidad',
         'responsabilidad',
         'descripcion'
     ];

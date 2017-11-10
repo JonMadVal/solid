@@ -8,7 +8,7 @@ class Beneficio extends Model
 {
     protected $table = 'beneficios';
     public $timestamps = false;
-    protected $primaryKey = 'idbeneficios';
+    protected $primaryKey = 'idbeneficio';
     protected $fillable = [
         'beneficio',
         'valorbeneficio'

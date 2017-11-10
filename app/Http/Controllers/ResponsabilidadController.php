@@ -32,7 +32,6 @@ class ResponsabilidadController extends Controller
 
         $responsabilidadDao = new ResponsabilidadesDao(new Responsabilidades());
         $rtn = $responsabilidadDao->getById($id);
-        var_dump($rtn);
         return json_encode($rtn);
     }
 

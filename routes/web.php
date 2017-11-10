@@ -38,4 +38,10 @@ Route::get('/deletePersona/{id}', 'PersonaController@delete');
 Route::get('/getAllPersona', 'PersonaController@getAllPersonas');
 
 
+Route::get('/createEmpleado', 'EmpleadoController@create');
+Route::get('/getEmpleado/{id}', 'EmpleadoController@getEmpleado');
+Route::get('/getEmpleados', 'EmpleadoController@getAllEmpleado');
+Route::get('/updateEmpleado', 'EmpleadoController@updateEmpleado');
+Route::get('/deleteEmpleado/{id}', 'EmpleadoController@deleteEmpleado');
+
 

@@ -22,7 +22,7 @@ class ResponsabilidadesDao implements ResponsabilidadesInterfaceDao
 
     public function getById($id)
     {
-        $this->responsabilidades->find($id);
+        return $this->responsabilidades->find($id);
     }
 
     public function getAll()
