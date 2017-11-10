@@ -24,23 +24,36 @@ class EmpleadoDao implements EmpleadoInterfaceDao
         return $this->empleado->find($id);
     }
 
+    public function getByIdWithPersona($id)
+    {
+        return $this->empleado->with("getPersona")->find($id);
+    }
+
     public function getAll()
     {
         return $this->empleado->all();
     }
 
-    public function create(array $data)
+    public function getAllWithPersona()
     {
-        $this->empleado->create($data);
+        return $this->empleado->with("getPersona")->get();
     }
 
-    public function update(array $data)
+    public function create(array $data)
     {
-        $this->empleado->update($data);
+        return $this->empleado->create($data);
+    }
+
+    public function update(array $data,$id)
+    {
+        $empleado = $this->empleado->find($id);
+        $empleado->update($data);
+        return $empleado->save();
     }
 
     public function delete($id)
     {
-        $this->empleado->delete($id);
+        $empleado = $this->empleado->find($id);
+        return $empleado->delete($id);
     }
 }
