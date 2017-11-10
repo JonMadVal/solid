@@ -9,6 +9,10 @@ use App\models\Responsabilidades;
 
 class ResponsabilidadController extends Controller
 {
+    private $output;
+    function __construct(){
+        $this->output = new OutputerController();
+    }
     public function create(Request $request){
         $data = [
             'responsabilidad'=>"Desarrollador",
@@ -17,7 +21,7 @@ class ResponsabilidadController extends Controller
 
         $responsabilidadDao = new ResponsabilidadesDao(new Responsabilidades());
         $rtn = $responsabilidadDao->create($data);
-        var_dump($rtn);
+        return $this->output->json($rtn);
     }
 
 
@@ -25,14 +29,14 @@ class ResponsabilidadController extends Controller
 
         $responsabilidadDao = new ResponsabilidadesDao(new Responsabilidades());
         $rtn = $responsabilidadDao->getAll();
-        return json_encode($rtn);
+        return $this->output->json($rtn);
     }
 
     public function getReponsabilidad($id){
 
         $responsabilidadDao = new ResponsabilidadesDao(new Responsabilidades());
         $rtn = $responsabilidadDao->getById($id);
-        return json_encode($rtn);
+        return $this->output->json($rtn);
     }
 
     public function update($id){
@@ -43,13 +47,13 @@ class ResponsabilidadController extends Controller
 
         $respondabilidadDao = new ResponsabilidadesDao(new Responsabilidades());
         $rtn = $respondabilidadDao->update($data, $id);
-        return json_encode($rtn);
+        return $this->output->json($rtn);
     }
 
     public function delete($id){
         $responsabilidadDao = new ResponsabilidadesDao(new Responsabilidades());
         $rtn = $responsabilidadDao->delete($id);
-        return json_encode($rtn);
+        return $this->output->json($rtn);
     }
 
 

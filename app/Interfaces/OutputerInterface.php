@@ -10,7 +10,7 @@ namespace App\Interfaces;
 
 interface OutputerInterface
 {
-    public function json();
+    public function json($data);
 
-    public function xml();
+    public function xml( $data);
 }

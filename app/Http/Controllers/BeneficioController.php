@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\OutputerInterface;
 use Illuminate\Http\Request;
 use App\Dao\BeneficioDao;
 use App\models\Beneficio;
-use App\Http\Controllers\OutputerController;
 
 class BeneficioController extends Controller
 {
+
+    private $output;
+    function __construct(){
+        $this->output = new OutputerController();
+    }
     public function create(Request $request){
 
         $data = [
@@ -18,24 +23,25 @@ class BeneficioController extends Controller
 
         $beneficioDao = new BeneficioDao(new Beneficio());
         $rtn = $beneficioDao->create($data);
-        var_dump($rtn);
+        return $this->output->json($rtn);
     }
 
     public function getAll(){
 
         $beneficioDao = new BeneficioDao(new Beneficio());
         $rtn = $beneficioDao->getAll();
-        return json_encode($rtn);
+        return $this->output->json($rtn->toArray());
     }
 
     public function getById($id){
 
         $beneficioDao = new BeneficioDao(new Beneficio());
         $rtn = $beneficioDao->getById($id);
-        return json_encode($rtn);
+        return $this->output->json($rtn->toArray());
     }
 
     public function update($id){
+
         $data = [
             'beneficio'=>"Bono editado",
             'valorbeneficio'=>"5%"
@@ -43,12 +49,14 @@ class BeneficioController extends Controller
 
         $beneficioDao = new BeneficioDao(new Beneficio());
         $rtn = $beneficioDao->update($data, $id);
-        return json_encode($rtn);
+        return $this->output->json($rtn->toArray());
     }
 
     public function delete($id){
+
         $beneficioDao = new BeneficioDao(new Beneficio());
         $rtn = $beneficioDao->delete($id);
-        return json_encode($rtn);
+        return $this->output->json($rtn->toArray());
+
     }
 }
