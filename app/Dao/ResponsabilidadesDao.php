@@ -35,13 +35,16 @@ class ResponsabilidadesDao implements ResponsabilidadesInterfaceDao
         $this->responsabilidades->create($data);
     }
 
-    public function update(array $data)
+    public function update(array $data, $id)
     {
-        $this->responsabilidades->update($data);
+        $responsabilidad = $this->responsabilidades->find($id);
+        $responsabilidad->update($data);
+        return $responsabilidad->save();;
     }
 
     public function delete($id)
     {
-        $this->responsabilidades->delete($id);
+        $responsabilidad = $this->responsabilidades->find($id);
+        return $responsabilidad->delete($id);
     }
 }

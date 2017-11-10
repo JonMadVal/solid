@@ -17,10 +17,18 @@ Route::get('/', function () {
 
 */
 
-Route::get('/', 'PersonaController@create');
-Route::get('/beneficiocreate', 'BeneficioController@create');
-Route::get('/beneficiosgetall', 'BeneficioController@getAll');
-Route::get('/beneficio/{id}', 'BeneficioController@getById');
+
+Route::get('/createBeneficio', 'BeneficioController@create');
+Route::get('/getAllBeneficio', 'BeneficioController@getAll');
+Route::get('/getBeneficio/{id}', 'BeneficioController@getById');
+Route::get('/updateBeneficio/{id}', 'BeneficioController@update');
+Route::get('/deleteBeneficio/{id}', 'BeneficioController@delete');
+
+Route::get('/createResponsabilidad', 'ResponsabilidadController@create');
+Route::get('/getAllResponsabilidad', 'ResponsabilidadController@getAll');
+Route::get('/getResponsabilidad/{id}', 'ResponsabilidadController@getReponsabilidad');
+Route::get('/updateResponsabilidad/{id}', 'ResponsabilidadController@update');
+Route::get('/deleteResponsabilidad/{id}', 'ResponsabilidadController@delete');
 
 
 Route::get('/createPersona', 'PersonaController@create');

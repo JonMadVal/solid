@@ -35,9 +35,11 @@ class BeneficioDao implements BeneficioInterfaceDao
         return $this->beneficio->create($data);
     }
 
-    public function update(array $data)
+    public function update(array $data, $id)
     {
-        return $this->beneficio->update($data);
+        $beneficio = $this->beneficio->find($id);
+        $beneficio->update($data);
+        return $beneficio->save();;
     }
 
     public function delete($id)

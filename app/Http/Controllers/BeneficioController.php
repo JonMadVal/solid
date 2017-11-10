@@ -36,8 +36,19 @@ class BeneficioController extends Controller
     }
 
     public function update($id){
+        $data = [
+            'beneficio'=>"Bono editado",
+            'valorbeneficio'=>"5%"
+        ];
 
-        $benefioDao = new BeneficioDao(new Beneficio());
-        $rtn = $benefioDao->find($id);
+        $beneficioDao = new BeneficioDao(new Beneficio());
+        $rtn = $beneficioDao->update($data, $id);
+        return json_encode($rtn);
+    }
+
+    public function delete($id){
+        $beneficioDao = new BeneficioDao(new Beneficio());
+        $rtn = $beneficioDao->delete($id);
+        return json_encode($rtn);
     }
 }
